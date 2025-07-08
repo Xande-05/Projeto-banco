@@ -60,7 +60,7 @@ while True:
     elif opção == '3':
         for p in extrato:
             print (p)
-        print (f'Osaldo atual é de {depósito}')
+        print (f'Osaldo atual é de R${depósito}')
     elif opção == '4':
         break
     else:

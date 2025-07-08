@@ -1,0 +1,69 @@
+menu = '''
+============= BEM VINDO AO BANCO =============
+
+Escolha entre as opções abaixo: 
+[1] Depósito
+[2] Saque
+[3] Extrato
+[4] Sair
+
+==>
+'''
+saldo = 0 
+limite = 500
+extrato = []
+numsaque = 3
+
+
+while True:
+    opção = (input(menu))
+    if opção == '1':
+        depósito = float(input('Digite o valor do depósito: '))
+        if depósito < 0:
+            while depósito < 0:
+                depósito = float(input('Não é possível depositar valores negativos. Por favor digite um valor positivo: '))
+                if depósito >= 0: 
+                    print ('Depósito realizado com sucesso!')
+                    saldo += depósito
+                    print (saldo)
+                    extrato.append (f'Depósito de R${depósito}')
+        elif depósito >= 0: 
+            print ('Depósito realizado com sucesso!')
+            saldo += depósito
+            print (saldo)
+            extrato.append (f'Depósito de R${depósito}')
+    elif opção == '2':
+        if numsaque > 0:
+            print (f'Você ainda tem direito a {numsaque} saque(s) hoje')
+            saque = float(input('Digite aqui o valor do saque (Max de 500R$): '))
+            if saque > 500:
+                while saque > 500:
+                    saque = float(input('Seu valor extrapolou o limite de 500 R$ p/ saque. Tente novamente: '))
+                resultado = depósito - saque
+                depósito -= saque
+                if resultado > 0:
+                    print ('Saque realizado com sucesso!')
+                    extrato.append (f'Saque de R${saque}')
+                else: 
+                    print ('Você não tem saldo o bastante para a realização deste saque.')
+            else: 
+                resultado = depósito - saque
+                depósito -= saque
+                if resultado > 0:
+                    print ('Saque realizado com sucesso!')
+                    extrato.append (f'Saque de R${saque}')
+                else: 
+                    print ('Você não tem saldo o bastante para a realização deste saque.')
+                numsaque = numsaque - 1
+        else:
+            print ('Você já atingiu o limite maximo de saques no dia de hoje.')
+    elif opção == '3':
+        for p in extrato:
+            print (p)
+        print (f'Osaldo atual é de {depósito}')
+    elif opção == '4':
+        break
+    else:
+        print ('Opção inválida, tentre novamente:')
+
+print ('FIM DO PROGRAMA!!')

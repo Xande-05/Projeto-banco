@@ -16,7 +16,8 @@ numsaque = 3
 
 
 while True:
-    opção = (input(menu))
+    opção = (input(menu)) 
+
     if opção == '1':
         depósito = float(input('Digite o valor do depósito: '))
         if depósito < 0:
@@ -25,13 +26,14 @@ while True:
                 if depósito >= 0: 
                     print ('Depósito realizado com sucesso!')
                     saldo += depósito
-                    print (saldo)
-                    extrato.append (f'Depósito de R${depósito}')
+                    print (f'O saldo atual é de: R${saldo}')
+                    extrato.append (f'Depósito de R$ {depósito}')
         elif depósito >= 0: 
             print ('Depósito realizado com sucesso!')
             saldo += depósito
-            print (saldo)
-            extrato.append (f'Depósito de R${depósito}')
+            print (f'O saldo atual é de: R${saldo}')
+            extrato.append (f'Depósito de R$ {depósito}')
+
     elif opção == '2':
         if numsaque > 0:
             print (f'Você ainda tem direito a {numsaque} saque(s) hoje')
@@ -39,28 +41,32 @@ while True:
             if saque > 500:
                 while saque > 500:
                     saque = float(input('Seu valor extrapolou o limite de 500 R$ p/ saque. Tente novamente: '))
-                resultado = depósito - saque
-                depósito -= saque
+                resultado = saldo - saque
                 if resultado > 0:
+                    saldo = saldo - saque
                     print ('Saque realizado com sucesso!')
+                    print (f'O saldo atual é de R${saldo}')
                     extrato.append (f'Saque de R${saque}')
+                    numsaque = numsaque - 1
                 else: 
                     print ('Você não tem saldo o bastante para a realização deste saque.')
             else: 
-                resultado = depósito - saque
-                depósito -= saque
-                if resultado > 0:
-                    print ('Saque realizado com sucesso!')
+                resultado = saldo - saque
+                if resultado >= 0:
+                    saldo = saldo - saque
+                    print (f'Saque de R${saque} realizado com sucesso!')
+                    print (f'O saldo atual é de R${saldo}')
                     extrato.append (f'Saque de R${saque}')
+                    numsaque = numsaque - 1
                 else: 
                     print ('Você não tem saldo o bastante para a realização deste saque.')
-                numsaque = numsaque - 1
         else:
             print ('Você já atingiu o limite maximo de saques no dia de hoje.')
+
     elif opção == '3':
         for p in extrato:
             print (p)
-        print (f'Osaldo atual é de R${depósito}')
+        print (f'O saldo atual é de R${saldo}')
     elif opção == '4':
         break
     else:

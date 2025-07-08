@@ -67,4 +67,3 @@ while True:
         print ('Opção inválida, tentre novamente:')
 
 print ('FIM DO PROGRAMA!!')
-

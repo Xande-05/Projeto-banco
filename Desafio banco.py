@@ -1,5 +1,5 @@
 menu = '''
-============= BEM VINDO AO BANCO =============
+============= BEM VINDO AO BANCO ALUNO =============
 
 Escolha entre as opções abaixo: 
 [1] Depósito

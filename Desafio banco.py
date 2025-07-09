@@ -14,7 +14,6 @@ limite = 500
 extrato = []
 numsaque = 3
 
-
 while True:
     opção = (input(menu)) 
 

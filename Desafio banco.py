@@ -7,15 +7,14 @@ Escolha entre as opções abaixo:
 [3] Extrato
 [4] Sair
 
-==>
-'''
-saldo = 0 
+==>'''
+saldo = 0
 limite = 500
 extrato = []
 numsaque = 3
 
 while True:
-    opção = (input(menu)) 
+    opção = (input(menu))
 
     if opção == '1':
         depósito = float(input('Digite o valor do depósito: '))
@@ -63,9 +62,12 @@ while True:
             print ('Você já atingiu o limite maximo de saques no dia de hoje.')
 
     elif opção == '3':
-        for p in extrato:
-            print (p)
-        print (f'O saldo atual é de R${saldo}')
+        if extrato == []:
+            print ('Não existem movimentações.')
+        else:
+            for p in extrato:
+                print (p)
+            print (f'O saldo atual é de R${saldo}')
     elif opção == '4':
         break
     else:

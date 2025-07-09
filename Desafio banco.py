@@ -8,6 +8,7 @@ Escolha entre as opções abaixo:
 [4] Sair
 
 ==>'''
+
 saldo = 0
 limite = 500
 extrato = []
